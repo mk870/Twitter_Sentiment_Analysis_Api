@@ -6,6 +6,7 @@ from flask import  Flask,request, jsonify, make_response
 import re
 import tweepy
 import nltk
+from flask_cors import CORS
 import string
 from wordcloud import WordCloud
 from nltk.corpus import stopwords
@@ -57,6 +58,8 @@ def combine(data):
     return ' '.join(data)
 
 app = Flask(__name__)
+CORS(app)
+
 @app.route("/music",methods = ['POST'])
 def musicSentiment():
     
