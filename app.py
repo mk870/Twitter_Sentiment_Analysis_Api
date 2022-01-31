@@ -1,4 +1,3 @@
-#from asyncio.windows_events import NULL
 import pandas as pd
 import pickle
 import numpy as np
@@ -58,7 +57,7 @@ def combine(data):
     return ' '.join(data)
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
 
 @app.route("/music",methods = ['POST'])
 def musicSentiment():
