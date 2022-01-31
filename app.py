@@ -1,4 +1,4 @@
-from asyncio.windows_events import NULL
+#from asyncio.windows_events import NULL
 import pandas as pd
 import pickle
 import numpy as np
@@ -102,10 +102,10 @@ def musicSentiment():
                         collocations=False).generate(" ".join(commonwords))
             topwords = list(wc.words_.keys())
 
-            res = make_response(jsonify({'sentiments':score,'wordcloud':topwords,'error':NULL}))
+            res = make_response(jsonify({'sentiments':score,'wordcloud':topwords,'error':''}))
             return res
         except:
-            res = make_response(jsonify({'sentiments':NULL,'wordcloud':NULL,'error': 'yes'}))
+            res = make_response(jsonify({'sentiments':'','wordcloud':'','error': 'yes'}))
             return res
 
 @app.route("/",methods = ['GET'])
