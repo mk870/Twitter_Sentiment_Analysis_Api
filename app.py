@@ -65,7 +65,7 @@ def musicSentiment():
     if request.method == 'POST':
         try:
             req = request.get_json()
-            search_term = req['song_title'] + ' ' + req['artist_name'] 
+            search_term = req['search'] 
             tweetlist =[]
             tweets2 = tweepy.Cursor(api.search_tweets,q = search_term,lang = 'en').items(160)
             for tweet in tweets2:
@@ -109,7 +109,7 @@ def musicSentiment():
 
 @app.route("/",methods = ['GET'])
 def hello():
-    return jsonify({"response":"hello this is the music app"})
+    return jsonify({"response":"hello this is a twitter sentiment app"})
 
 if __name__== "__main__":
     app.run(debug = True)
