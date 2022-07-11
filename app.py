@@ -17,10 +17,10 @@ with open('model.pkl','rb') as f:
 
 with open('tfidf.pkl','rb') as f:
     vectoriser = pickle.load(f)
-api_key = 'ZmKvGdJ6a6VepKvq2fu35L8RR'
-api_key_secret = '2NKQyMex4ga3fAeANdNOgjTugMg0SUWMGIKnRuJ8divF3O78hb'
-access_token = '723255442479128576-oi3UEZq7HlWKMPrrP650QZE5C5dlflm'
-access_token_secret = 'AkBBx73rYfXbT4ltIofFQb79LlUofBgEdwXpNetzobHyK'
+api_key = 'key'
+api_key_secret = 'secret'
+access_token = 'token'
+access_token_secret = 'token-secret'
 
 auth_handler = tweepy.OAuthHandler(consumer_key=api_key, consumer_secret=api_key_secret)
 auth_handler.set_access_token(access_token,access_token_secret)
@@ -59,7 +59,7 @@ def combine(data):
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
-@app.route("/music",methods = ['POST'])
+@app.route("/sentiments",methods = ['POST'])
 def musicSentiment():
     
     if request.method == 'POST':
